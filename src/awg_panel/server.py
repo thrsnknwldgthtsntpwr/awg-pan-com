@@ -522,48 +522,31 @@ class Handler(BaseHTTPRequestHandler):
                     'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px">'
                     '<path d="M3 10h18M3 10l1.333-4A1 1 0 0 1 5.333 4H18.667a1 1 0 0 1 1.002 2l-1.333 4A1 1 0 0 1 18.333 18H5.667a1 1 0 0 1-1-2z"></path>'
                     '<path d="M9 10l3 3-1 1m0 0l3 3m-3-3V10"></path></svg>')
-        ICON_PHONE = ('<svg width=16 height=16 viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-                      'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px">'
-                      '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.8 19.8 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 0 7l.01.16"></path></svg>')
-        ICON_APPLE = ('<svg width=16 height=16 viewBox="0 0 24 24" fill="none" stroke="currentColor" '
-                      'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:6px">'
-                      '<path d="M17.5 19c0 1.1-1.1 2-2.5 2S12.5 20.1 12.5 19c0-1.1 1.1-2 2.5-2s2.5 0.9 2.5 2z"></path>'
-                      '<path d="M12 7c-1.7 0-3 1.3-3 2.9 0 1.6 1.3 2.9 3 2.9s3-1.3 3-2.9c0-1.6-1.3-2.9-3-2.9z"></path></svg>')
-        body = ("<h1>Инструкции для пользователей</h1>"
+        body = ("<h1>Инструкции для клиентов</h1>"
                 "<div class=card>"
-                "<p>Выберите приложение, в которое нужно импортировать ключ AWG:</p>"
+                "<p>Официальные инструкции по подключению к AWG:</p>"
                 "<details class=acc style='margin-bottom:10px;border:1px solid #e2e8f0;border-radius:6px;overflow:hidden'>"
                 "<summary style='padding:10px 14px;cursor:pointer;background:#f8fafc;font-weight:600'>" + ICON_VPN + "AmneziaVPN</summary>"
                 "<div style='padding:12px 16px'>"
                 "<div class=row>"
-                "<a class=btn style='flex:1'>Windows</a> "
-                "<a class=btn style='flex:1'>Android</a> "
-                "<a class=btn style='flex:1'>iOS</a>"
+                "<a class=btn href='https://docs.amnezia.org/ru/documentation/instructions/connect-via-text-key/' target=_blank rel=noopener style='flex:1'>Подключение через ключ в виде текста</a>"
                 "</div>"
-                "<p class=muted style='margin-top:10px'>Импортируйте .conf или отсканируйте QR-код клиента в приложении AmneziaVPN.</p>"
+                "<div class=row style='margin-top:8px'>"
+                "<a class=btn href='https://docs.amnezia.org/ru/documentation/instructions/connect-via-config/' target=_blank rel=noopener style='flex:1'>Подключение через файл конфигурации</a>"
+                "</div>"
+                "<div class=row style='margin-top:8px'>"
+                "<a class=btn href='https://docs.amnezia.org/ru/documentation/instructions/connect-via-qr-code/' target=_blank rel=noopener style='flex:1'>Подключение через QR-код</a>"
+                "</div>"
                 "</div></details>"
                 "<details class=acc style='margin-bottom:10px;border:1px solid #e2e8f0;border-radius:6px;overflow:hidden'>"
                 "<summary style='padding:10px 14px;cursor:pointer;background:#f8fafc;font-weight:600'>" + ICON_VPN + "AmneziaWG</summary>"
                 "<div style='padding:12px 16px'>"
                 "<div class=row>"
-                "<a class=btn style='flex:1'>Windows</a> "
-                "<a class=btn style='flex:1'>Android</a> "
-                "<a class=btn style='flex:1'>iOS</a>"
+                "<a class=btn href='https://docs.amnezia.org/ru/documentation/instructions/use-amneziawg-app/' target=_blank rel=noopener style='flex:1'>Как использовать приложение AmneziaWG</a>"
                 "</div>"
-                "<p class=muted style='margin-top:10px'>Импортируйте .conf или отсканируйте QR-код клиента в приложении AmneziaWG.</p>"
-                "</div></details>"
-                "<details class=acc style='margin-bottom:10px;border:1px solid #e2e8f0;border-radius:6px;overflow:hidden'>"
-                "<summary style='padding:10px 14px;cursor:pointer;background:#f8fafc;font-weight:600'>" + ICON_VPN + "DefaultVPN</summary>"
-                "<div style='padding:12px 16px'>"
-                "<div class=row>"
-                "<a class=btn style='flex:1'>Windows</a> "
-                "<a class=btn style='flex:1'>Android</a> "
-                "<a class=btn style='flex:1'>iOS</a>"
-                "</div>"
-                "<p class=muted style='margin-top:10px'>Импортируйте .conf или отсканируйте QR-код клиента в приложении DefaultVPN.</p>"
                 "</div></details>"
                 "</div>")
-        return self._layout("Инструкции", "instructions", body, csrf)
+        return self._layout("Инструкции для клиентов", "instructions", body, csrf)
 
     def _system_block(self) -> str:
         try:
